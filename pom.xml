@@ -278,15 +278,15 @@
                 <module>plugin-schema-registry</module>
                 <module>plugin-sqoop</module>
                 <module>ranger-sqoop-plugin-shim</module>
-                <module>plugin-kylin</module>
-                <module>ranger-kylin-plugin-shim</module>
+<!--                <module>plugin-kylin</module>-->
+<!--                <module>ranger-kylin-plugin-shim</module>-->
                 <module>plugin-elasticsearch</module>
                 <module>ranger-elasticsearch-plugin-shim</module>
                 <!--
                    'distro' should be the last module. If a module gets inserted after
                    ranger-elasticsearch-plugin-shim, make sure to update dependency in distro/pom.xml
                 -->
-                <module>distro</module>
+<!--                <module>distro</module>-->
             </modules>
         </profile>
         <profile>
@@ -947,32 +947,32 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>${maven.pmd.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <rulesets>
-                        <ruleset>${project.parent.basedir}/dev-support/ranger-pmd-ruleset.xml</ruleset>
-                    </rulesets>
-                    <sourceEncoding>UTF-8</sourceEncoding>
-                    <failOnViolation>true</failOnViolation>
-                    <linkXRef>false</linkXRef>
-                    <includeTests>true</includeTests>
-                    <verbose>true</verbose>
-                    <excludeRoots>
-                        <excludeRoot>${basedir}/src/main/generated</excludeRoot>
-                    </excludeRoots>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-pmd-plugin</artifactId>-->
+<!--                <version>${maven.pmd.plugin.version}</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>verify</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>check</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    <rulesets>-->
+<!--                        <ruleset>${project.parent.basedir}/dev-support/ranger-pmd-ruleset.xml</ruleset>-->
+<!--                    </rulesets>-->
+<!--                    <sourceEncoding>UTF-8</sourceEncoding>-->
+<!--                    <failOnViolation>true</failOnViolation>-->
+<!--                    <linkXRef>false</linkXRef>-->
+<!--                    <includeTests>true</includeTests>-->
+<!--                    <verbose>true</verbose>-->
+<!--                    <excludeRoots>-->
+<!--                        <excludeRoot>${basedir}/src/main/generated</excludeRoot>-->
+<!--                    </excludeRoots>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.rat</groupId>
                 <artifactId>apache-rat-plugin</artifactId>
