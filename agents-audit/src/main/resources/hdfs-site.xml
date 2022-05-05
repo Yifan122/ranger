@@ -1,0 +1,437 @@
+  <configuration  xmlns:xi="http://www.w3.org/2001/XInclude">
+    
+    <property>
+      <name>dfs.balance.bandwidthPerSec</name>
+      <value>5242880000</value>
+    </property>
+    
+    <property>
+      <name>dfs.balancer.dispatcherThreads</name>
+      <value>1200</value>
+    </property>
+    
+    <property>
+      <name>dfs.balancer.moverThreads</name>
+      <value>1200</value>
+    </property>
+    
+    <property>
+      <name>dfs.block.access.token.enable</name>
+      <value>true</value>
+    </property>
+    
+    <property>
+      <name>dfs.blockreport.incremental.intervalMsec</name>
+      <value>300</value>
+    </property>
+    
+    <property>
+      <name>dfs.blockreport.initialDelay</name>
+      <value>120</value>
+    </property>
+    
+    <property>
+      <name>dfs.blockreport.intervalMsec</name>
+      <value>86400000</value>
+    </property>
+    
+    <property>
+      <name>dfs.blockreport.split.threshold</name>
+      <value>300000</value>
+    </property>
+    
+    <property>
+      <name>dfs.blocksize</name>
+      <value>268435456</value>
+    </property>
+    
+    <property>
+      <name>dfs.client.failover.proxy.provider.victoria</name>
+      <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+    </property>
+    
+    <property>
+      <name>dfs.client.read.shortcircuit</name>
+      <value>true</value>
+    </property>
+    
+    <property>
+      <name>dfs.client.read.shortcircuit.streams.cache.size</name>
+      <value>4096</value>
+    </property>
+    
+    <property>
+      <name>dfs.client.retry.policy.enabled</name>
+      <value>false</value>
+    </property>
+    
+    <property>
+      <name>dfs.client.socket-timeout</name>
+      <value>180000</value>
+    </property>
+    
+    <property>
+      <name>dfs.cluster.administrators</name>
+      <value> hdfs,hadoop</value>
+    </property>
+    
+    <property>
+      <name>dfs.content-summary.limit</name>
+      <value>5000</value>
+    </property>
+    
+    <property>
+      <name>dfs.datanode.address</name>
+      <value>0.0.0.0:18010</value>
+    </property>
+    
+    <property>
+      <name>dfs.datanode.balance.bandwidthPerSec</name>
+      <value>25000000</value>
+    </property>
+    
+    <property>
+      <name>dfs.datanode.balance.max.concurrent.moves</name>
+      <value>100</value>
+    </property>
+    
+    <property>
+      <name>dfs.datanode.data.dir</name>
+      <value>/data/storage/datanode</value>
+      <final>true</final>
+    </property>
+    
+    <property>
+      <name>dfs.datanode.data.dir.perm</name>
+      <value>750</value>
+    </property>
+    
+    <property>
+      <name>dfs.datanode.directoryscan.threads</name>
+      <value>8</value>
+    </property>
+    
+    <property>
+      <name>dfs.datanode.du.reserved</name>
+      <value>134216152576</value>
+    </property>
+    
+    <property>
+      <name>dfs.datanode.failed.volumes.tolerated</name>
+      <value>0</value>
+      <final>true</final>
+    </property>
+    
+    <property>
+      <name>dfs.datanode.handler.count</name>
+      <value>80</value>
+    </property>
+    
+    <property>
+      <name>dfs.datanode.http.address</name>
+      <value>0.0.0.0:18075</value>
+    </property>
+    
+    <property>
+      <name>dfs.datanode.https.address</name>
+      <value>0.0.0.0:18475</value>
+    </property>
+    
+    <property>
+      <name>dfs.datanode.ipc.address</name>
+      <value>0.0.0.0:8010</value>
+    </property>
+    
+    <property>
+      <name>dfs.datanode.max.transfer.threads</name>
+      <value>16384</value>
+    </property>
+    
+    <property>
+      <name>dfs.domain.socket.path</name>
+      <value>/var/lib/hadoop-hdfs/dn_socket</value>
+    </property>
+    
+    <property>
+      <name>dfs.encrypt.data.transfer.cipher.suites</name>
+      <value>AES/CTR/NoPadding</value>
+    </property>
+    
+    <property>
+      <name>dfs.ha.automatic-failover.enabled</name>
+      <value>true</value>
+    </property>
+    
+    <property>
+      <name>dfs.ha.fencing.methods</name>
+      <value>shell(/bin/true)</value>
+    </property>
+    
+    <property>
+      <name>dfs.ha.namenodes.victoria</name>
+      <value>nn1,nn2</value>
+    </property>
+    
+    <property>
+      <name>dfs.heartbeat.interval</name>
+      <value>3</value>
+    </property>
+    
+    <property>
+      <name>dfs.hosts.exclude</name>
+      <value>/etc/hadoop/conf/dfs.exclude</value>
+    </property>
+    
+    <property>
+      <name>dfs.http.policy</name>
+      <value>HTTP_ONLY</value>
+    </property>
+    
+    <property>
+      <name>dfs.https.port</name>
+      <value>50470</value>
+    </property>
+    
+    <property>
+      <name>dfs.internal.nameservices</name>
+      <value>victoria</value>
+    </property>
+    
+    <property>
+      <name>dfs.journalnode.edits.dir</name>
+      <value>/data/storage/journal</value>
+    </property>
+    
+    <property>
+      <name>dfs.journalnode.http-address</name>
+      <value>0.0.0.0:8480</value>
+    </property>
+    
+    <property>
+      <name>dfs.journalnode.https-address</name>
+      <value>0.0.0.0:8481</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.accesstime.precision</name>
+      <value>0</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.acls.enabled</name>
+      <value>false</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.audit.log.async</name>
+      <value>true</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.avoid.read.stale.datanode</name>
+      <value>true</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.avoid.write.stale.datanode</name>
+      <value>true</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.checkpoint.dir</name>
+      <value>/data/storage/namesecondary</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.checkpoint.edits.dir</name>
+      <value>${dfs.namenode.checkpoint.dir}</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.checkpoint.period</name>
+      <value>3600</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.checkpoint.txns</name>
+      <value>1000000</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.fs-limits.max-directory-items</name>
+      <value>6400000</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.fslock.fair</name>
+      <value>false</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.handler.count</name>
+      <value>800</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.http-address.victoria.nn1</name>
+      <value>ip-10-60-53-169.ap-southeast-1.compute.internal:18070</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.http-address.victoria.nn2</name>
+      <value>ip-10-60-53-98.ap-southeast-1.compute.internal:18070</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.https-address.victoria.nn1</name>
+      <value>ip-10-60-53-169.ap-southeast-1.compute.internal:18470</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.https-address.victoria.nn2</name>
+      <value>ip-10-60-53-98.ap-southeast-1.compute.internal:18470</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.inode.attributes.provider.class</name>
+      <value>org.apache.ranger.authorization.hadoop.RangerHdfsAuthorizer</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.name.dir</name>
+      <value>/data/storage/namenode</value>
+      <final>true</final>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.name.dir.restore</name>
+      <value>true</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.quota.init-threads</name>
+      <value>32</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.rpc-address.victoria.nn1</name>
+      <value>ip-10-60-53-169.ap-southeast-1.compute.internal:8020</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.rpc-address.victoria.nn2</name>
+      <value>ip-10-60-53-98.ap-southeast-1.compute.internal:8020</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.safemode.threshold-pct</name>
+      <value>0.99</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.service.handler.count</name>
+      <value>400</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.servicerpc-address.victoria.nn1</name>
+      <value>ip-10-60-53-169.ap-southeast-1.compute.internal:8022</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.servicerpc-address.victoria.nn2</name>
+      <value>ip-10-60-53-98.ap-southeast-1.compute.internal:8022</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.shared.edits.dir</name>
+      <value>qjournal://ip-10-60-53-199.ap-southeast-1.compute.internal:8485;ip-10-60-54-21.ap-southeast-1.compute.internal:8485;ip-10-60-53-115.ap-southeast-1.compute.internal:8485;ip-10-60-53-116.ap-southeast-1.compute.internal:8485;ip-10-60-53-117.ap-southeast-1.compute.internal:8485/victoria</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.stale.datanode.interval</name>
+      <value>30000</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.startup.delay.block.deletion.sec</name>
+      <value>3600</value>
+    </property>
+    
+    <property>
+      <name>dfs.namenode.write.stale.datanode.ratio</name>
+      <value>1.0f</value>
+    </property>
+    
+    <property>
+      <name>dfs.nameservices</name>
+      <value>victoria</value>
+    </property>
+    
+    <property>
+      <name>dfs.permissions.ContentSummary.subAccess</name>
+      <value>true</value>
+    </property>
+    
+    <property>
+      <name>dfs.permissions.enabled</name>
+      <value>true</value>
+    </property>
+    
+    <property>
+      <name>dfs.permissions.superusergroup</name>
+      <value>hdfs</value>
+    </property>
+    
+    <property>
+      <name>dfs.replication</name>
+      <value>3</value>
+    </property>
+    
+    <property>
+      <name>dfs.replication.max</name>
+      <value>50</value>
+    </property>
+    
+    <property>
+      <name>dfs.webhdfs.enabled</name>
+      <value>false</value>
+      <final>true</final>
+    </property>
+    
+    <property>
+      <name>fs.file.impl</name>
+      <value>org.apache.hadoop.fs.LocalFileSystem</value>
+    </property>
+    
+    <property>
+      <name>fs.hdfs.impl</name>
+      <value>org.apache.hadoop.hdfs.DistributedFileSystem</value>
+    </property>
+    
+    <property>
+      <name>fs.permissions.umask-mode</name>
+      <value>022</value>
+    </property>
+    
+    <property>
+      <name>hadoop.caller.context.enabled</name>
+      <value>true</value>
+    </property>
+    
+    <property>
+      <name>manage.include.files</name>
+      <value>false</value>
+    </property>
+    
+    <property>
+      <name>nfs.exports.allowed.hosts</name>
+      <value>* rw</value>
+    </property>
+    
+    <property>
+      <name>nfs.file.dump.dir</name>
+      <value>/tmp/.hdfs-nfs</value>
+    </property>
+    
+  </configuration>
