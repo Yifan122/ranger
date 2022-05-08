@@ -445,7 +445,7 @@ public class RangerSystemAccessControl
 
   @Override
   public void checkCanGrantTablePrivilege(SystemSecurityContext context, Privilege privilege, CatalogSchemaTableName table, PrestoPrincipal grantee, boolean withGrantOption) {
-    if (!hasPermission(createResource(table), context, PrestoAccessType.GRANT)) {
+    if (!hasPermission(createResource(table), context, PrestoAccessType.ADMIN)) {
       LOG.debug("RangerSystemAccessControl.checkCanGrantTablePrivilege(" + table + ") denied");
       AccessDeniedException.denyGrantTablePrivilege(privilege.toString(), table.toString());
     }
@@ -453,7 +453,7 @@ public class RangerSystemAccessControl
 
   @Override
   public void checkCanRevokeTablePrivilege(SystemSecurityContext context, Privilege privilege, CatalogSchemaTableName table, PrestoPrincipal revokee, boolean grantOptionFor) {
-    if (!hasPermission(createResource(table), context, PrestoAccessType.REVOKE)) {
+    if (!hasPermission(createResource(table), context, PrestoAccessType.ADMIN)) {
       LOG.debug("RangerSystemAccessControl.checkCanRevokeTablePrivilege(" + table + ") denied");
       AccessDeniedException.denyRevokeTablePrivilege(privilege.toString(), table.toString());
     }
@@ -555,7 +555,7 @@ public class RangerSystemAccessControl
    */
   @Override
   public void checkCanShowColumns(SystemSecurityContext context, CatalogSchemaTableName table) {
-    if (!hasPermission(createResource(table), context, PrestoAccessType.SHOW)) {
+    if (!hasPermission(createResource(table), context, PrestoAccessType.SELECT)) {
       LOG.debug("RangerSystemAccessControl.checkCanShowTables(" + table.toString() + ") denied");
       AccessDeniedException.denyShowColumns(table.toString());
     }
@@ -591,10 +591,6 @@ public class RangerSystemAccessControl
 
   @Override
   public void checkCanViewQueryOwnedBy(SystemSecurityContext context, String queryOwner) {
-    if (!hasPermission(createUserResource(queryOwner), context, PrestoAccessType.IMPERSONATE)) {
-      LOG.debug("RangerSystemAccessControl.checkCanViewQueryOwnedBy(" + queryOwner + ") denied");
-      AccessDeniedException.denyImpersonateUser(context.getIdentity().getUser(), queryOwner);
-    }
   }
 
   /**
@@ -607,10 +603,6 @@ public class RangerSystemAccessControl
 
   @Override
   public void checkCanKillQueryOwnedBy(SystemSecurityContext context, String queryOwner) {
-    if (!hasPermission(createUserResource(queryOwner), context, PrestoAccessType.IMPERSONATE)) {
-      LOG.debug("RangerSystemAccessControl.checkCanKillQueryOwnedBy(" + queryOwner + ") denied");
-      AccessDeniedException.denyImpersonateUser(context.getIdentity().getUser(), queryOwner);
-    }
   }
 
   /** FUNCTIONS **/
@@ -839,5 +831,5 @@ class RangerPrestoAccessRequest
 }
 
 enum PrestoAccessType {
-  CREATE, DROP, SELECT, INSERT, DELETE, USE, ALTER, ALL, GRANT, REVOKE, SHOW, IMPERSONATE, EXECUTE;
+  CREATE, DROP, SELECT, INSERT, DELETE, USE, ALTER, ALL, ADMIN;
 }
