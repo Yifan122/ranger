@@ -437,7 +437,7 @@ public class RangerSystemAccessControl
 
   @Override
   public void checkCanDeleteFromTable(SystemSecurityContext context, CatalogSchemaTableName table) {
-    if (!hasPermission(createResource(table), context, PrestoAccessType.DELETE)) {
+    if (!hasPermission(createResource(table), context, PrestoAccessType.INSERT)) {
       LOG.debug("RangerSystemAccessControl.checkCanDeleteFromTable(" + table.getSchemaTableName().getTableName() + ") denied");
       AccessDeniedException.denyDeleteTable(table.getSchemaTableName().getTableName());
     }
@@ -831,5 +831,5 @@ class RangerPrestoAccessRequest
 }
 
 enum PrestoAccessType {
-  CREATE, DROP, SELECT, INSERT, DELETE, USE, ALTER, ALL, ADMIN;
+  CREATE, DROP, SELECT, INSERT, USE, ALTER, ALL, ADMIN;
 }
