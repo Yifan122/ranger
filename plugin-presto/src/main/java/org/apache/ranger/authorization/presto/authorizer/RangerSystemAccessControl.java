@@ -40,6 +40,8 @@ import org.apache.ranger.plugin.policyengine.RangerAccessRequestImpl;
 import org.apache.ranger.plugin.policyengine.RangerAccessResourceImpl;
 import org.apache.ranger.plugin.policyengine.RangerAccessResult;
 import org.apache.ranger.plugin.service.RangerBasePlugin;
+import org.apache.ranger.plugin.policyengine.RangerPolicyEngine;
+import org.apache.ranger.plugin.service.RangerGroupUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,7 +49,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.security.Principal;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -70,6 +71,7 @@ public class RangerSystemAccessControl
   final public static String RANGER_PRESTO_APPID = "presto";
 
   final private RangerBasePlugin rangerPlugin;
+  private RangerGroupUserService service;
 
   private boolean useUgi = false;
 
@@ -115,6 +117,11 @@ public class RangerSystemAccessControl
 
     rangerPlugin = new RangerBasePlugin(RANGER_PRESTO_SERVICETYPE, RANGER_PRESTO_APPID);
     rangerPlugin.init();
+    service = new RangerGroupUserService(RANGER_PRESTO_SERVICETYPE, rangerPlugin.createAdminClient(
+            RANGER_PRESTO_SERVICETYPE,
+            RANGER_PRESTO_APPID,
+            "ranger.plugin." + RANGER_PRESTO_SERVICETYPE));
+    service.start();
     rangerPlugin.setResultProcessor(new RangerDefaultAuditHandler());
   }
 
@@ -639,13 +646,11 @@ public class RangerSystemAccessControl
     if (useUgi) {
       UserGroupInformation ugi = UserGroupInformation.createRemoteUser(context.getIdentity().getUser());
 
-      String[] groups = ugi != null ? ugi.getGroupNames() : null;
+      userGroups = ugi != null ? service.getGroups(ugi.getUserName()) : null;
 
-      if (groups != null && groups.length > 0) {
-        userGroups = new HashSet<>(Arrays.asList(groups));
-      }
     } else {
-      userGroups = context.getIdentity().getGroups();
+      userGroups = service.getGroups(context.getIdentity().getUser());
+
     }
 
     RangerPrestoAccessRequest request = new RangerPrestoAccessRequest(
@@ -825,7 +830,11 @@ class RangerPrestoAccessRequest
                                    String user,
                                    Set<String> userGroups,
                                    PrestoAccessType prestoAccessType) {
-    super(resource, prestoAccessType.name().toLowerCase(ENGLISH), user, userGroups, null);
+    super(resource,
+            prestoAccessType == PrestoAccessType.USE ? RangerPolicyEngine.ANY_ACCESS :
+                    prestoAccessType == PrestoAccessType.ADMIN ? RangerPolicyEngine.ADMIN_ACCESS :
+                            prestoAccessType.name().toLowerCase(ENGLISH), user,
+            userGroups);
     setAccessTime(new Date());
   }
 }
